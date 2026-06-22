@@ -56,7 +56,7 @@ public class Main {
             e.printStackTrace();
         } finally {
             HibernateUtil.shutdown();
-            System.out.println("\n=== Приложение завершило работу ===");
+            System.out.println("\n=== Приложение завершило работу s===");
         }
     }
 }
