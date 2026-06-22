@@ -2,16 +2,25 @@
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.conection.url">jdbc:mysql://localhost:3306/carhire_db?serverTimezone=UTC</property>
-        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.username">car_user</property>
-        <property name="hibernate.connection.password">car_password</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <property name="jakarta.persistence.jdbc.url">jdbc:mysql://localhost:3306/carhire_db?serverTimezone=UTC</property>
+        <property name="jakarta.persistence.jdbc.driver">com.mysql.cj.jdbc.Driver</property>
+        <property name="jakarta.persistence.jdbc.user">car_user</property>
+        <property name="jakarta.persistence.jdbc.password">car_password</property>
+
+
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
 
+
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+
+        <mapping class="com.carhire.model.Customer"/>
+        <mapping class="com.carhire.model.Vehicle"/>
+        <mapping class="com.carhire.model.Booking"/>
     </session-factory>
 </hibernate-configuration>

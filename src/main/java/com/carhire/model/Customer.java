@@ -1,10 +1,22 @@
 package com.carhire.model;
+import java.util.Objects;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "customers")
 public class Customer {
+    @Id
+
+    @Column(name="id", nullable = false, updatable = false)
     private String id;
+    @Column(name="full_name", nullable = false)
     private String fullName;
+    @Column(name = "age", nullable = false)
     private int age;
+    @Column(name="driving_experience_years", nullable = false)
     private int drivingExperienceYears;
+
+    protected Customer() {}
 
     public Customer(String id, String fullName, int age, int drivingExperienceYears) {
         this.id = id;

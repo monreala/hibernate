@@ -1,11 +1,27 @@
 package com.carhire.model;
+import jakarta.persistence.*;
+import java.util.Objects;
+@Entity
+@Table(name = "bookings")
 
 public class Booking {
-    private final String bookingId;
-    private final Customer customer;
-    private final Vehicle vehicle;
-    private final int rentDays;
+    @Id
+
+    @Column(name = "booking_id", nullable = false, updatable = false)
+    private  String bookingId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id", nullable = false)
+    private  Customer customer;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "vehicle_reg_number", nullable = false)
+    private  Vehicle vehicle;
+    @Column(name = "rent_days", nullable = false)
+    private  int rentDays;
+    @Column(name = "booking_status")
+    @Enumerated(EnumType.STRING)
     private BookingStatus status;
+
+    protected Booking() {}
 
     public Booking(String bookingId, Customer customer, Vehicle vehicle, int rentDays) {
         this.bookingId = bookingId;
